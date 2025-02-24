@@ -1,0 +1,115 @@
+/* Center the carousel and add a shadow border */
+.carousel-container {
+    max-width: 800px; /* Adjust width for desktop */
+    margin: 20px auto;
+    padding: 15px;
+    border: 5px solid #28a745; /* Success Green Border */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.7); /* Yellow shadow */
+    background: linear-gradient(135deg, #28a745, #ffc107); /* Green to Yellow gradient */
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Title Styling */
+.carousel-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffffff; /* White text */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Center the carousel items */
+.carousel-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Optimized Image Styling */
+.carousel-image {
+    width: 100%;
+    max-width: 800px; /* Prevents excessive stretching */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 400px; /* Limits height */
+    object-fit: contain; /* Ensures full visibility */
+    border-radius: 10px;
+    border: 3px solid #fff; /* White border around images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Customizing carousel controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+/* Styling for Date & Description */
+.carousel-text {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 15px;
+}
+
+.carousel-date {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.carousel-description {
+    font-size: 15px;
+    color: #555;
+}
+
+/* 🔹 RESPONSIVE DESIGN 🔹 */
+@media (min-width: 1024px) { /* Large screens */
+    .carousel-image {
+        max-width: 900px;
+        max-height: 500px;
+    }
+}
+
+@media (max-width: 768px) { /* Tablets */
+    .carousel-container {
+        max-width: 90%;
+        border-radius: 10px;
+        border-width: 4px;
+    }
+
+    .carousel-image {
+        max-width: 600px;
+        max-height: 350px;
+    }
+
+    .carousel-title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) { /* Mobile */
+    .carousel-container {
+        max-width: 95%;
+        border-radius: 8px;
+        border-width: 3px;
+    }
+
+    .carousel-image {
+        max-width: 100%;
+        max-height: 300px;
+    }
+
+    .carousel-title {
+        font-size: 20px;
+    }
+
+    .carousel-text {
+        padding: 10px;
+    }
+}

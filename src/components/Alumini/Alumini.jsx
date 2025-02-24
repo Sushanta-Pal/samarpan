@@ -2,7 +2,10 @@ import React from 'react'
 
 const Alumini=()=> {
   return (
-    <div>Alumini</div>
+    <>
+   <p>Alumini Network</p>
+    
+    </>
   )
 }
 
