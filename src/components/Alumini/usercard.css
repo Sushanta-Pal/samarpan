@@ -2,68 +2,96 @@
 
 /* Global Styles */
 .card {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    border-radius: 16px;
-    overflow: hidden;
-    background: #ffffff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    height: 400px; /* Ensures all cards have the same height */
-    margin: auto;
-    padding: 1rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  height: 450px; /* Fixed height for consistent card sizes */
+  margin: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Ensures even spacing */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Profile Photo */
+.card-body img {
+  border: 3px solid #6c757d;
+  padding: 3px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Card Title */
+.card-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+/* Card Text */
+.card-text {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+}
+
+/* Small Text */
+.small {
+  font-size: 0.875rem;
+  text-align: center;
+  color: #777;
+}
+
+/* Skills Section */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 0.5rem;
+}
+
+/* Skills Badge */
+.badge {
+  font-size: 0.75rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 12px;
+  background-color: #6c757d;
+  color: #fff;
+}
+
+/* Icon Section */
+.icon-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.icon-container a {
+  color: #6c757d;
+  font-size: 1.25rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.icon-container a:hover {
+  color: #333;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .card {
+    max-width: 90%;
+    height: auto; /* Let it adjust on smaller screens */
   }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Profile Photo */
-  .card-body img {
-    border: 3px solid #6c757d;
-    padding: 3px;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-  }
-  
-  /* Card Title */
-  .card-title {
-    font-size: 1.25rem;
-    color: #333;
-  }
-  
-  /* Card Text */
-  .card-text {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  /* Small Text */
-  .small {
-    font-size: 0.875rem;
-  }
-  
-  /* Skills Section */
-  .skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
-  }
-  
-  /* Skills Badge */
-  .badge {
-    font-size: 0.75rem;
-    padding: 0.35rem 0.6rem;
-    border-radius: 12px;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .card {
-      max-width: 90%;
-      height: auto; /* Adjust height for smaller screens if needed */
-    }
-  }
-  
+}

@@ -5,8 +5,8 @@ import 'aos/dist/aos.css';
 import UserCard from './UserCards';
 import Search from './Search';
 
-const GOOGLE_SHEET_ID = '1fiy9ncSDLiFQQ8dhkARjQzlvvvXLRpH6mSKRANGnuRI';
-const SHEET_NAME = 'Alumini'; // Sheet tab name
+const GOOGLE_SHEET_ID = '1eMX3XyaTGnSFxoGaIuzOrY2y_AiQAvfQvMLgiKDZ8fA';
+const SHEET_NAME = 'Test_AluMNi';
 const API_URL = `https://opensheet.vercel.app/${GOOGLE_SHEET_ID}/${SHEET_NAME}`;
 
 export const Alumini = () => {
@@ -29,16 +29,33 @@ export const Alumini = () => {
         const response = await axios.get(API_URL);
         console.log('Fetched Data:', response.data);
 
-        const formattedData = response.data.map((user, index) => ({
-          id: user.id || index,
-          fullName: user.Name || 'Unknown',
-          profilePhoto: user.profilePhoto || 'https://via.placeholder.com/150',
-          jobRole: user.jobRole || 'Not Specified',
-          city: user.city || 'Unknown',
-          passOutYear: user.passOutYear || 'Unknown',
-          currentCompany: user.currentCompany || 'Not Available',
-          skills: user.skills ? user.skills.split(',').map(skill => skill.trim()) : [],
-        }));
+        const formattedData = response.data.map((user, index) => {
+          const cleanedUser = Object.fromEntries(
+            Object.entries(user).map(([key, value]) => [key.trim(), value])
+          );
+        
+          const photoId = cleanedUser.Photo?.includes('id=')
+            ? cleanedUser.Photo.split('id=')[1]
+            : cleanedUser.Photo.split('/d/')[1]?.split('/')[0];
+        
+          return {
+            id: cleanedUser.id || index,
+            fullName: cleanedUser.FullName || 'Unknown',
+            photoId: photoId,
+            email: cleanedUser.Email || 'Not Provided',
+            github: cleanedUser.Github || '#',
+            linkedin: cleanedUser.Linkedin || '#',
+            passOutYear: cleanedUser.PassOutYear || 'Unknown',
+            rollNo: cleanedUser.RollNo || 'Not Available',
+            jobRole: cleanedUser.jobRole || 'Not Specified',
+            currentCompany: cleanedUser.currentCompany || 'Not Available',
+            skills: cleanedUser.Skills ? cleanedUser.Skills.split(',').map(skill => skill.trim()) : [],
+            gender: cleanedUser.gender || 'Not Specified',
+            city: cleanedUser.City || 'Unknown',
+            state: cleanedUser.State || 'Unknown',
+          };
+        });
+        
 
         setAlumni(formattedData);
         setFilteredUsers(formattedData);
@@ -66,6 +83,8 @@ export const Alumini = () => {
       const city = user.city.toLowerCase();
       const skills = user.skills.map(skill => skill.toLowerCase());
       const passOut = String(user.passOutYear);
+      const state = user.state.toLowerCase();
+      const rollNo = user.rollNo.toLowerCase();
 
       if (filter === 'name') {
         return name.includes(lowerCaseQuery);
@@ -75,6 +94,10 @@ export const Alumini = () => {
         return skills.some(skill => skill.includes(lowerCaseQuery));
       } else if (filter === 'passOut') {
         return passOut.includes(lowerCaseQuery);
+      } else if (filter === 'state') {
+        return state.includes(lowerCaseQuery);
+      } else if (filter === 'rollNo') {
+        return rollNo.includes(lowerCaseQuery);
       }
       return false;
     });
