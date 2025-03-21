@@ -37,7 +37,8 @@ function OffcanvasExample() {
               <Nav.Link as={Link} to="/alumini" onClick={handleClose}>Alumni</Nav.Link>
             </Nav>
             <div className="button-group">
-              <Button variant="outline-success" className="equal-button">Member Login</Button>
+            <Nav.Link as={Link} to="/members" onClick={handleClose}><Button variant="outline-success" className="equal-button">Members</Button></Nav.Link>
+              
               <Button className="donate-button equal-button">Donate</Button>
             </div>
           </Offcanvas.Body>

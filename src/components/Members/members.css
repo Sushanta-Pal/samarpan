@@ -1,0 +1,63 @@
+/* Member Container */
+.member-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Member Card */
+.member-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: calc(25% - 20px); /* Default: 4 boxes per row */
+    min-width: 230px;
+    height: 270px;
+    background: transparent;
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.member-card:hover {
+    transform: scale(1.05);
+}
+
+/* Member Image */
+.member-img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(228, 236, 243, 0.7);
+    margin-bottom: 15px;
+}
+
+/* Member Text */
+.member-name {
+    font-size: 1.25rem; /* 20px */
+    font-weight: bold;
+    color: #333;
+}
+
+.member-role {
+    font-size: 1rem; /* 16px */
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .member-card {
+        width: calc(50% - 20px); /* 2 boxes per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .member-card {
+        width: 100%; /* 1 box per row */
+        height: 300px;
+    }
+}

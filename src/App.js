@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/OffcanvasExample';
 import CarouselComponent from './components/Events/CarouselComponent';
 import Card from './components/Events/Card';
 import Footer from './components/Footer/Footer';
+import Members from './components/Members/member'
 
 const App = () => {
   return (
@@ -15,7 +16,9 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/alumini' element={<Alumini />} />
         <Route path='/events' element={<Card />} />
+        <Route path='/members' element={<Members />} />
         <Route path='/carousel' element={<CarouselComponent />} /> 
+       
       </Routes>
       <Footer/>
     </Router>
